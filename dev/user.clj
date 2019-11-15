@@ -234,18 +234,12 @@
 
 (def get-symbol-name (comp symbol module-name->kebab-case))
 
-(defn default-name [c]
-  (str "ant-" (module-name->kebab-case c)))
-
-(defn define-fn [f]
-  (str "(defn " (get-symbol-name f) " [& args] (apply " f " args))"))
-
-(defn define-reagent-component [component base-class]
+(defn define-domino-component [component base-class]
   (str "(defmethod domino.ui.component/component :" (get-symbol-name component) " [opts]"
        "\n"
        "  [syn-antd." (module-name->kebab-case base-class) "/" (get-symbol-name component) " opts])"))
 
-(defn factory-ns-shadow [class path default-name rest-of-file reagent? input?]
+(defn factory-ns-shadow [class rest-of-file reagent? input?]
   (str "(ns " base-package "." (module-name->kebab-case class) "\n"
        "  (:require\n"
        (when reagent? (str "    [syn-antd."
@@ -255,26 +249,16 @@
        "))\n\n"
        rest-of-file))
 
-(defn innerify [base [s & rest-s]]
-  (if s
-    (let [id (if (map? s)
-               (:id s)
-               s)]
-      (innerify (str "(.-" id " " base ")")
-                rest-s))
-    base))
-
 ;; Inspiration taken from https://github.com/fulcrologic/semantic-ui-wrapper
 (defn gen-factories! []
   (doseq [{:keys [class path inner suffix input?]
            :or   {input? false}} ant]
     (let [filename  (str "src/" base-path "/" (module-name->snake-case (or class path)) ".cljs")
-          default   (default-name (or class path))
           file-body (string/join
                       "\n\n"
                       (concat
                         (when (some? class)
-                          [(define-reagent-component class class)])
+                          [(define-domino-component class class)])
                         (when (some? inner)
                           (map (fn [entry]
                                  (let [id (if (map? entry)
@@ -286,4 +270,4 @@
                           [suffix])))]
       (make-parents filename)
       (spit (as-file filename)
-            (factory-ns-shadow (or class path) (str "antd/es/" path) default file-body (some? class) input?)))))
+            (factory-ns-shadow (or class path) file-body (some? class) input?)))))
