@@ -264,7 +264,7 @@
                                  (let [id (if (map? entry)
                                             (:id entry)
                                             entry)]
-                                   (define-reagent-component (str class "." id)
+                                   (define-domino-component (str class "." id)
                                                              class))) inner))
                         (when (some? suffix)
                           [suffix])))]
