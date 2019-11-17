@@ -1,6 +1,7 @@
 node_modules/
 public/js
 *.lock
+package-lock.json
 
 /target
 /checkouts

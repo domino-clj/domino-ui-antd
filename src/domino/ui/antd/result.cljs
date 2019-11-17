@@ -5,4 +5,5 @@
 ))
 
 (defmethod domino.ui.component/component :result [opts]
-  [syn-antd.result/result opts])
+  (fn []
+    [syn-antd.result/result opts]))

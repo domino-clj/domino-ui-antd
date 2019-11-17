@@ -5,4 +5,5 @@
 ))
 
 (defmethod domino.ui.component/component :tooltip [opts]
-  [syn-antd.tooltip/tooltip opts])
+  (fn []
+    [syn-antd.tooltip/tooltip opts]))

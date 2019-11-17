@@ -5,4 +5,5 @@
 ))
 
 (defmethod domino.ui.component/component :popover [opts]
-  [syn-antd.popover/popover opts])
+  (fn []
+    [syn-antd.popover/popover opts]))

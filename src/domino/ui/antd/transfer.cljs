@@ -5,4 +5,5 @@
 ))
 
 (defmethod domino.ui.component/component :transfer [opts]
-  [syn-antd.transfer/transfer opts])
+  (fn []
+    [syn-antd.transfer/transfer opts]))

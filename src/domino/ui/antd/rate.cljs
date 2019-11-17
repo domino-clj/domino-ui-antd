@@ -5,4 +5,5 @@
 ))
 
 (defmethod domino.ui.component/component :rate [opts]
-  [syn-antd.rate/rate opts])
+  (fn []
+    [syn-antd.rate/rate opts]))

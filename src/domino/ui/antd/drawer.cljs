@@ -5,4 +5,5 @@
 ))
 
 (defmethod domino.ui.component/component :drawer [opts]
-  [syn-antd.drawer/drawer opts])
+  (fn []
+    [syn-antd.drawer/drawer opts]))

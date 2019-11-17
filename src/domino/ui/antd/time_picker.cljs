@@ -5,4 +5,5 @@
 ))
 
 (defmethod domino.ui.component/component :time-picker [opts]
-  [syn-antd.time-picker/time-picker opts])
+  (fn []
+    [syn-antd.time-picker/time-picker opts]))

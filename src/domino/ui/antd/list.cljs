@@ -5,10 +5,13 @@
 ))
 
 (defmethod domino.ui.component/component :list [opts]
-  [syn-antd.list/list opts])
+  (fn []
+    [syn-antd.list/list opts]))
 
 (defmethod domino.ui.component/component :list-item [opts]
-  [syn-antd.list/list-item opts])
+  (fn []
+    [syn-antd.list/list-item opts]))
 
 (defmethod domino.ui.component/component :list-item-meta [opts]
-  [syn-antd.list/list-item-meta opts])
+  (fn []
+    [syn-antd.list/list-item-meta opts]))

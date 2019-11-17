@@ -5,4 +5,5 @@
 ))
 
 (defmethod domino.ui.component/component :input-number [opts]
-  [syn-antd.input-number/input-number opts])
+  (fn []
+    [syn-antd.input-number/input-number opts]))

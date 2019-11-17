@@ -5,4 +5,5 @@
 ))
 
 (defmethod domino.ui.component/component :alert [opts]
-  [syn-antd.alert/alert opts])
+  (fn []
+    [syn-antd.alert/alert opts]))

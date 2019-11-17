@@ -5,4 +5,5 @@
 ))
 
 (defmethod domino.ui.component/component :locale-provider [opts]
-  [syn-antd.locale-provider/locale-provider opts])
+  (fn []
+    [syn-antd.locale-provider/locale-provider opts]))

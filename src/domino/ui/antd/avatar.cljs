@@ -5,4 +5,5 @@
 ))
 
 (defmethod domino.ui.component/component :avatar [opts]
-  [syn-antd.avatar/avatar opts])
+  (fn []
+    [syn-antd.avatar/avatar opts]))

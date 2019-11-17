@@ -5,4 +5,5 @@
 ))
 
 (defmethod domino.ui.component/component :divider [opts]
-  [syn-antd.divider/divider opts])
+  (fn []
+    [syn-antd.divider/divider opts]))

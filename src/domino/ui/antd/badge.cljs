@@ -5,4 +5,5 @@
 ))
 
 (defmethod domino.ui.component/component :badge [opts]
-  [syn-antd.badge/badge opts])
+  (fn []
+    [syn-antd.badge/badge opts]))

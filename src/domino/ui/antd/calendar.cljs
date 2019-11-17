@@ -5,4 +5,5 @@
 ))
 
 (defmethod domino.ui.component/component :calendar [opts]
-  [syn-antd.calendar/calendar opts])
+  (fn []
+    [syn-antd.calendar/calendar opts]))

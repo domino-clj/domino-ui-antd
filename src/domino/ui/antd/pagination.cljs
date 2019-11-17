@@ -5,4 +5,5 @@
 ))
 
 (defmethod domino.ui.component/component :pagination [opts]
-  [syn-antd.pagination/pagination opts])
+  (fn []
+    [syn-antd.pagination/pagination opts]))

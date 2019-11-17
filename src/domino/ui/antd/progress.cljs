@@ -5,4 +5,5 @@
 ))
 
 (defmethod domino.ui.component/component :progress [opts]
-  [syn-antd.progress/progress opts])
+  (fn []
+    [syn-antd.progress/progress opts]))

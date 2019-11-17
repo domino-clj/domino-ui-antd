@@ -5,4 +5,5 @@
 ))
 
 (defmethod domino.ui.component/component :page-header [opts]
-  [syn-antd.page-header/page-header opts])
+  (fn []
+    [syn-antd.page-header/page-header opts]))

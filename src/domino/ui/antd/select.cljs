@@ -5,17 +5,20 @@
 ))
 
 (defmethod domino.ui.component/component :select [opts]
-  [syn-antd.select/select opts])
+  (fn []
+    [syn-antd.select/select opts]))
 
 (defmethod domino.ui.component/component :select-opt-group [opts]
-  [syn-antd.select/select-opt-group opts])
+  (fn []
+    [syn-antd.select/select-opt-group opts]))
 
 (defmethod domino.ui.component/component :select-option [opts]
-  [syn-antd.select/select-option opts])
+  (fn []
+    [syn-antd.select/select-option opts]))
 
 (defn ant-select-option [id-fn label-fn option]
   ^{:key (str "antd-option-" (id-fn option))}
-  [select-option
+  [syn-antd.select/select-option
    {:key      (id-fn option)
     :value    (id-fn option)
     :title    (label-fn option)

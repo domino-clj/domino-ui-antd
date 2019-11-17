@@ -5,7 +5,9 @@
 ))
 
 (defmethod domino.ui.component/component :checkbox [opts]
-  [syn-antd.checkbox/checkbox opts])
+  (fn []
+    [syn-antd.checkbox/checkbox opts]))
 
 (defmethod domino.ui.component/component :checkbox-group [opts]
-  [syn-antd.checkbox/checkbox-group opts])
+  (fn []
+    [syn-antd.checkbox/checkbox-group opts]))

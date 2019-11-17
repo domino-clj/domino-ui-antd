@@ -5,4 +5,5 @@
 ))
 
 (defmethod domino.ui.component/component :statistic [opts]
-  [syn-antd.statistic/statistic opts])
+  (fn []
+    [syn-antd.statistic/statistic opts]))

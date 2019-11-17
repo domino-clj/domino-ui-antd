@@ -5,4 +5,5 @@
 ))
 
 (defmethod domino.ui.component/component :carousel [opts]
-  [syn-antd.carousel/carousel opts])
+  (fn []
+    [syn-antd.carousel/carousel opts]))

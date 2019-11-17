@@ -5,7 +5,9 @@
 ))
 
 (defmethod domino.ui.component/component :descriptions [opts]
-  [syn-antd.descriptions/descriptions opts])
+  (fn []
+    [syn-antd.descriptions/descriptions opts]))
 
 (defmethod domino.ui.component/component :descriptions-item [opts]
-  [syn-antd.descriptions/descriptions-item opts])
+  (fn []
+    [syn-antd.descriptions/descriptions-item opts]))

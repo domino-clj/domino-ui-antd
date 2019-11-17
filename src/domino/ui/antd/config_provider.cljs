@@ -5,4 +5,5 @@
 ))
 
 (defmethod domino.ui.component/component :config-provider [opts]
-  [syn-antd.config-provider/config-provider opts])
+  (fn []
+    [syn-antd.config-provider/config-provider opts]))

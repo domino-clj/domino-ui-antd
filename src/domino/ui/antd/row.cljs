@@ -5,4 +5,5 @@
 ))
 
 (defmethod domino.ui.component/component :row [opts]
-  [syn-antd.row/row opts])
+  (fn []
+    [syn-antd.row/row opts]))

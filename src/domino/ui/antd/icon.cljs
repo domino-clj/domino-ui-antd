@@ -5,4 +5,5 @@
 ))
 
 (defmethod domino.ui.component/component :icon [opts]
-  [syn-antd.icon/icon opts])
+  (fn []
+    [syn-antd.icon/icon opts]))

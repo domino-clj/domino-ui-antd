@@ -5,7 +5,9 @@
 ))
 
 (defmethod domino.ui.component/component :tag [opts]
-  [syn-antd.tag/tag opts])
+  (fn []
+    [syn-antd.tag/tag opts]))
 
 (defmethod domino.ui.component/component :tag-checkable-tag [opts]
-  [syn-antd.tag/tag-checkable-tag opts])
+  (fn []
+    [syn-antd.tag/tag-checkable-tag opts]))

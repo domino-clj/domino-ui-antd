@@ -5,4 +5,5 @@
 ))
 
 (defmethod domino.ui.component/component :cascader [opts]
-  [syn-antd.cascader/cascader opts])
+  (fn []
+    [syn-antd.cascader/cascader opts]))

@@ -5,4 +5,5 @@
 ))
 
 (defmethod domino.ui.component/component :spin [opts]
-  [syn-antd.spin/spin opts])
+  (fn []
+    [syn-antd.spin/spin opts]))

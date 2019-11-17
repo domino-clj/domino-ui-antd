@@ -165,7 +165,7 @@
              "Option"]
     :suffix "(defn ant-select-option [id-fn label-fn option]
   ^{:key (str \"antd-option-\" (id-fn option))}
-  [select-option
+  [syn-antd.select/select-option
    {:key      (id-fn option)
     :value    (id-fn option)
     :title    (label-fn option)
@@ -237,7 +237,8 @@
 (defn define-domino-component [component base-class]
   (str "(defmethod domino.ui.component/component :" (get-symbol-name component) " [opts]"
        "\n"
-       "  [syn-antd." (module-name->kebab-case base-class) "/" (get-symbol-name component) " opts])"))
+       "  (fn []\n"
+       "    [syn-antd." (module-name->kebab-case base-class) "/" (get-symbol-name component) " opts]))"))
 
 (defn factory-ns-shadow [class rest-of-file reagent? input?]
   (str "(ns " base-package "." (module-name->kebab-case class) "\n"

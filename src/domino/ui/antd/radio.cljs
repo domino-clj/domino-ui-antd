@@ -5,10 +5,13 @@
 ))
 
 (defmethod domino.ui.component/component :radio [opts]
-  [syn-antd.radio/radio opts])
+  (fn []
+    [syn-antd.radio/radio opts]))
 
 (defmethod domino.ui.component/component :radio-button [opts]
-  [syn-antd.radio/radio-button opts])
+  (fn []
+    [syn-antd.radio/radio-button opts]))
 
 (defmethod domino.ui.component/component :radio-group [opts]
-  [syn-antd.radio/radio-group opts])
+  (fn []
+    [syn-antd.radio/radio-group opts]))

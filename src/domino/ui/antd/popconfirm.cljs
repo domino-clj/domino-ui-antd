@@ -5,4 +5,5 @@
 ))
 
 (defmethod domino.ui.component/component :popconfirm [opts]
-  [syn-antd.popconfirm/popconfirm opts])
+  (fn []
+    [syn-antd.popconfirm/popconfirm opts]))

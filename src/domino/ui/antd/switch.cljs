@@ -5,4 +5,5 @@
 ))
 
 (defmethod domino.ui.component/component :switch [opts]
-  [syn-antd.switch/switch opts])
+  (fn []
+    [syn-antd.switch/switch opts]))

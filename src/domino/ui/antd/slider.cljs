@@ -5,4 +5,5 @@
 ))
 
 (defmethod domino.ui.component/component :slider [opts]
-  [syn-antd.slider/slider opts])
+  (fn []
+    [syn-antd.slider/slider opts]))

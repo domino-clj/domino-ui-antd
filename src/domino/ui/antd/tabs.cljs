@@ -5,7 +5,9 @@
 ))
 
 (defmethod domino.ui.component/component :tabs [opts]
-  [syn-antd.tabs/tabs opts])
+  (fn []
+    [syn-antd.tabs/tabs opts]))
 
 (defmethod domino.ui.component/component :tabs-tab-pane [opts]
-  [syn-antd.tabs/tabs-tab-pane opts])
+  (fn []
+    [syn-antd.tabs/tabs-tab-pane opts]))

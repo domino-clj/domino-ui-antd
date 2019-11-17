@@ -5,10 +5,13 @@
 ))
 
 (defmethod domino.ui.component/component :card [opts]
-  [syn-antd.card/card opts])
+  (fn []
+    [syn-antd.card/card opts]))
 
 (defmethod domino.ui.component/component :card-grid [opts]
-  [syn-antd.card/card-grid opts])
+  (fn []
+    [syn-antd.card/card-grid opts]))
 
 (defmethod domino.ui.component/component :card-meta [opts]
-  [syn-antd.card/card-meta opts])
+  (fn []
+    [syn-antd.card/card-meta opts]))

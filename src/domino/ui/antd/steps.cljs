@@ -5,7 +5,9 @@
 ))
 
 (defmethod domino.ui.component/component :steps [opts]
-  [syn-antd.steps/steps opts])
+  (fn []
+    [syn-antd.steps/steps opts]))
 
 (defmethod domino.ui.component/component :steps-step [opts]
-  [syn-antd.steps/steps-step opts])
+  (fn []
+    [syn-antd.steps/steps-step opts]))

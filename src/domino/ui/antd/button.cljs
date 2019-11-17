@@ -5,7 +5,9 @@
 ))
 
 (defmethod domino.ui.component/component :button [opts]
-  [syn-antd.button/button opts])
+  (fn []
+    [syn-antd.button/button opts]))
 
 (defmethod domino.ui.component/component :button-group [opts]
-  [syn-antd.button/button-group opts])
+  (fn []
+    [syn-antd.button/button-group opts]))

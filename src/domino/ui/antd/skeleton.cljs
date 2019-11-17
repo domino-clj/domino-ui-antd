@@ -5,4 +5,5 @@
 ))
 
 (defmethod domino.ui.component/component :skeleton [opts]
-  [syn-antd.skeleton/skeleton opts])
+  (fn []
+    [syn-antd.skeleton/skeleton opts]))

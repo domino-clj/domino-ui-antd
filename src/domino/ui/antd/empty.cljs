@@ -5,4 +5,5 @@
 ))
 
 (defmethod domino.ui.component/component :empty [opts]
-  [syn-antd.empty/empty opts])
+  (fn []
+    [syn-antd.empty/empty opts]))

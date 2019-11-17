@@ -5,4 +5,5 @@
 ))
 
 (defmethod domino.ui.component/component :comment [opts]
-  [syn-antd.comment/comment opts])
+  (fn []
+    [syn-antd.comment/comment opts]))

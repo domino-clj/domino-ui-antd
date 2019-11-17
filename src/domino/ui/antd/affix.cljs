@@ -5,4 +5,5 @@
 ))
 
 (defmethod domino.ui.component/component :affix [opts]
-  [syn-antd.affix/affix opts])
+  (fn []
+    [syn-antd.affix/affix opts]))

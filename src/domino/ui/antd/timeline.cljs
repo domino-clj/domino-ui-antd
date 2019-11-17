@@ -5,7 +5,9 @@
 ))
 
 (defmethod domino.ui.component/component :timeline [opts]
-  [syn-antd.timeline/timeline opts])
+  (fn []
+    [syn-antd.timeline/timeline opts]))
 
 (defmethod domino.ui.component/component :timeline-item [opts]
-  [syn-antd.timeline/timeline-item opts])
+  (fn []
+    [syn-antd.timeline/timeline-item opts]))

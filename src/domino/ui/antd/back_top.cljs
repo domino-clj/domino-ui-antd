@@ -5,4 +5,5 @@
 ))
 
 (defmethod domino.ui.component/component :back-top [opts]
-  [syn-antd.back-top/back-top opts])
+  (fn []
+    [syn-antd.back-top/back-top opts]))

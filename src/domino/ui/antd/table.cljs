@@ -5,10 +5,13 @@
 ))
 
 (defmethod domino.ui.component/component :table [opts]
-  [syn-antd.table/table opts])
+  (fn []
+    [syn-antd.table/table opts]))
 
 (defmethod domino.ui.component/component :table-column [opts]
-  [syn-antd.table/table-column opts])
+  (fn []
+    [syn-antd.table/table-column opts]))
 
 (defmethod domino.ui.component/component :table-column-group [opts]
-  [syn-antd.table/table-column-group opts])
+  (fn []
+    [syn-antd.table/table-column-group opts]))

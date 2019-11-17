@@ -5,4 +5,5 @@
 ))
 
 (defmethod domino.ui.component/component :upload [opts]
-  [syn-antd.upload/upload opts])
+  (fn []
+    [syn-antd.upload/upload opts]))

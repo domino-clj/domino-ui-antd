@@ -5,7 +5,9 @@
 ))
 
 (defmethod domino.ui.component/component :mentions [opts]
-  [syn-antd.mentions/mentions opts])
+  (fn []
+    [syn-antd.mentions/mentions opts]))
 
 (defmethod domino.ui.component/component :mentions-option [opts]
-  [syn-antd.mentions/mentions-option opts])
+  (fn []
+    [syn-antd.mentions/mentions-option opts]))
