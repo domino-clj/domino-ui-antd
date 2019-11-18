@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "antd": "3.23.3",
+    "process": "^0.11.10",
     "react": "16.9.0",
     "react-dom": "16.9.0",
     "react-syntax-highlighter": "11.0.2"

@@ -2,11 +2,8 @@
   (:require
     [syn-antd.select]
     [domino.ui.component]
-))
-
-(defmethod domino.ui.component/component :select [opts]
-  (fn []
-    [syn-antd.select/select opts]))
+    [domino.ui.core :as core]
+    [re-frame.core :as rf]))
 
 (defmethod domino.ui.component/component :select-opt-group [opts]
   (fn []
@@ -30,3 +27,15 @@
                            label-fn :label}}]
   (let [option-fn (partial ant-select-option id-fn label-fn)]
     (map option-fn options)))
+
+(defmethod domino.ui.component/component :select [{:keys [id disabled value on-change options id-fn label-fn]
+                                                   :or   {id-fn    :id
+                                                          label-fn :label}
+                                                   :as   opts}]
+  (fn []
+    [syn-antd.select/select (assoc opts :disabled (or disabled @(rf/subscribe [::core/component id :disabled?]))
+                                        :on-change (or on-change #(rf/dispatch [::core/id id %]))
+                                        :value (or value @(rf/subscribe [::core/id id])))
+     (ant-options {:id-fn    id-fn
+                   :label-fn label-fn
+                   :options  options})]))

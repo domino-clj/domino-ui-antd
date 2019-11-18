@@ -33,19 +33,25 @@
                :component :label
                :id        :full-name}
 
-              #_[:div
+              {:component :button
+               :id        :test-button
+               :label     "Hello"}
+
+              [:div
                [:label "Gender"]
                {:component :select
                 :id        :gender
                 :options   [{:id    "M"
                              :label "Male"}
                             {:id    "F"
-                             :label "Female"}]}]]}
+                             :label "Female"}]
+                :style     {:width "200px"}}]]}
    :model
    [[:demographics
      [:first-name {:id :first-name}]
      [:last-name {:id :last-name}]
-     [:full-name {:id :full-name}]]]
+     [:full-name {:id :full-name}]
+     [:gender {:id :gender}]]]
    :effects
    [{:inputs  [:first-name]
      :handler (fn [_ {:keys [first-name]}]
@@ -73,7 +79,7 @@
    [:label "db state"]
    [:pre (pprint @(rf/subscribe [::core/db]))]])
 
-(defn mount-root []
+(defn ^:dev/after-load mount-root []
   (rf/dispatch-sync [::core/init schema])
   (r/render [home-page] (.getElementById js/document "app")))
 
