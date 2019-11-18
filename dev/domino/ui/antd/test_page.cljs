@@ -14,9 +14,6 @@
   (fn []
     [:label label " " @(rf/subscribe [::core/id id])]))
 
-
-;; TODO: button example
-;; TODO: select example
 (def schema
   {:views
    {:default [:div
