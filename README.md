@@ -1,5 +1,11 @@
 # domino/ui-antd
 
+## Running in development mode
+
+```
+npm install
+shadow-cljs watch test-page
+```
 
 ## Building
 
