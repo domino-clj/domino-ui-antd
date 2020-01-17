@@ -4,7 +4,7 @@
 
 ```
 npm install
-shadow-cljs watch test-page
+npx shadow-cljs watch test-page
 ```
 
 ## Building

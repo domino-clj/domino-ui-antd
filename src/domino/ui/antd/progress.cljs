@@ -1,9 +1,9 @@
 (ns domino.ui.antd.progress
   (:require
     [syn-antd.progress]
-    [domino.ui.component]
+    [domino.ui.component :refer [component] :as c]
 ))
 
-(defmethod domino.ui.component/component :progress [opts]
+(defmethod component ::c/progress [[_ opts]]
   (fn []
     [syn-antd.progress/progress opts]))

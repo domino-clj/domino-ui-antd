@@ -1,9 +1,9 @@
 (ns domino.ui.antd.popconfirm
   (:require
     [syn-antd.popconfirm]
-    [domino.ui.component]
+    [domino.ui.component :refer [component] :as c]
 ))
 
-(defmethod domino.ui.component/component :popconfirm [opts]
+(defmethod component ::c/popconfirm [[_ opts]]
   (fn []
     [syn-antd.popconfirm/popconfirm opts]))

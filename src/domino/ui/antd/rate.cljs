@@ -1,9 +1,9 @@
 (ns domino.ui.antd.rate
   (:require
     [syn-antd.rate]
-    [domino.ui.component]
+    [domino.ui.component :refer [component] :as c]
 ))
 
-(defmethod domino.ui.component/component :rate [opts]
+(defmethod component ::c/rate [[_ opts]]
   (fn []
     [syn-antd.rate/rate opts]))

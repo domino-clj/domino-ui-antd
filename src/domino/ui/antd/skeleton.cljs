@@ -1,9 +1,9 @@
 (ns domino.ui.antd.skeleton
   (:require
     [syn-antd.skeleton]
-    [domino.ui.component]
+    [domino.ui.component :refer [component] :as c]
 ))
 
-(defmethod domino.ui.component/component :skeleton [opts]
+(defmethod component ::c/skeleton [[_ opts]]
   (fn []
     [syn-antd.skeleton/skeleton opts]))

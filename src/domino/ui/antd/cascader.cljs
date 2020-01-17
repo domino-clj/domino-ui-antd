@@ -1,9 +1,9 @@
 (ns domino.ui.antd.cascader
   (:require
     [syn-antd.cascader]
-    [domino.ui.component]
+    [domino.ui.component :refer [component] :as c]
 ))
 
-(defmethod domino.ui.component/component :cascader [opts]
+(defmethod component ::c/cascader [[_ opts]]
   (fn []
     [syn-antd.cascader/cascader opts]))

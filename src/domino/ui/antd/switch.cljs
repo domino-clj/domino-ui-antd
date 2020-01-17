@@ -1,9 +1,9 @@
 (ns domino.ui.antd.switch
   (:require
     [syn-antd.switch]
-    [domino.ui.component]
+    [domino.ui.component :refer [component] :as c]
 ))
 
-(defmethod domino.ui.component/component :switch [opts]
+(defmethod component ::c/switch [[_ opts]]
   (fn []
     [syn-antd.switch/switch opts]))

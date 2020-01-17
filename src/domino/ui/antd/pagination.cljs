@@ -1,9 +1,9 @@
 (ns domino.ui.antd.pagination
   (:require
     [syn-antd.pagination]
-    [domino.ui.component]
+    [domino.ui.component :refer [component] :as c]
 ))
 
-(defmethod domino.ui.component/component :pagination [opts]
+(defmethod component ::c/pagination [[_ opts]]
   (fn []
     [syn-antd.pagination/pagination opts]))

@@ -2,47 +2,43 @@
   (:require
     [reagent.core :as r]
     [re-frame.core :as rf]
-
     [domino.ui.core :as core]
-    [domino.ui.component :refer [component]]
-
+    [domino.ui.component :refer [component] :as c]
     [domino.ui.antd.input]
     [domino.ui.antd.button]
     [domino.ui.antd.select]))
 
-(defmethod component :label [{:keys [label id]}]
+(defmethod component ::c/label [[_ {:keys [context label id]}]]
   (fn []
-    [:label label " " @(rf/subscribe [::core/id id])]))
+    [:label label " " @(rf/subscribe [::core/subscribe context id])]))
 
 (def schema
   {:views
    {:default [:div
               [:div
                [:label "First name"]
-               {:component :input
-                :id        :first-name}]
+               [::c/input {:id :first-name}]]
               [:div
                [:label "Last name"]
-               {:component :input
-                :id        :last-name}]
+               [::c/input {:id :last-name}]]
 
-              {:label     "Last name"
-               :component :label
-               :id        :full-name}
+              [::c/label {:label "Full name"
+                          :id    :full-name}]
 
-              {:component :button
-               :id        :test-button
-               :label     "Hello"}
+              [:div
+               [::c/button
+                {:id    :test-button
+                 :label "Hello"}]]
 
               [:div
                [:label "Gender"]
-               {:component :select
-                :id        :gender
-                :options   [{:id    "M"
-                             :label "Male"}
-                            {:id    "F"
-                             :label "Female"}]
-                :style     {:width "200px"}}]]}
+               [::c/select
+                {:id      :gender
+                 :options [{:id    "M"
+                            :label "Male"}
+                           {:id    "F"
+                            :label "Female"}]
+                 :style   {:width "200px"}}]]]}
    :model
    [[:demographics
      [:first-name {:id :first-name}]
@@ -52,7 +48,7 @@
    :effects
    [{:inputs  [:first-name]
      :handler (fn [_ {:keys [first-name]}]
-                (rf/dispatch [::core/update-component-state
+                (rf/dispatch [::core/merge-component-state
                               :last-name
                               {:disabled? (empty? first-name)}]))}]
    :events
@@ -69,15 +65,15 @@
 
 (defn home-page []
   [:div
-   @(rf/subscribe [::core/view :default])
+   @(rf/subscribe [::core/view :default-ctx :default])
    [:hr]
    [:label "component states"]
-   [:pre (pprint @(rf/subscribe [::core/components]))]
+   [:pre (pprint @(rf/subscribe [::core/component-states :default-ctx]))]
    [:label "db state"]
-   [:pre (pprint @(rf/subscribe [::core/db]))]])
+   [:pre (pprint @(rf/subscribe [::core/db :default-ctx]))]])
 
 (defn ^:dev/after-load mount-root []
-  (rf/dispatch-sync [::core/init schema])
+  (rf/dispatch-sync [::core/init-ctx :default-ctx schema {}])
   (r/render [home-page] (.getElementById js/document "app")))
 
 (defn init! []

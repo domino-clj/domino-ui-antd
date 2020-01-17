@@ -1,9 +1,9 @@
 (ns domino.ui.antd.statistic
   (:require
     [syn-antd.statistic]
-    [domino.ui.component]
+    [domino.ui.component :refer [component] :as c]
 ))
 
-(defmethod domino.ui.component/component :statistic [opts]
+(defmethod component ::c/statistic [[_ opts]]
   (fn []
     [syn-antd.statistic/statistic opts]))

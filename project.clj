@@ -7,7 +7,7 @@
 
   :dependencies [[org.clojure/clojure "1.10.1" :scope "provided"]
                  [syn-antd "1.3.0"]
-                 [domino/ui "0.1.0" :scope "provided"]]
+                 [domino/ui "0.1.2" :scope "provided"]]
 
   :source-paths ["src"]
   :clean-targets ^{:protect false} ["target"]

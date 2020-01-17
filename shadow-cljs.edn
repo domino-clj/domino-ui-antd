@@ -6,7 +6,7 @@
  [[reagent "0.9.0-rc1"]
   [re-frame "0.11.0-rc1"]
   [syn-antd "1.3.0"]
-  [domino/ui "0.1.0" :scope "provided"]]
+  [domino/ui "0.1.2" :scope "provided"]]
 
  :builds
  {:test-page {:target     :browser

@@ -1,9 +1,9 @@
 (ns domino.ui.antd.config-provider
   (:require
     [syn-antd.config-provider]
-    [domino.ui.component]
+    [domino.ui.component :refer [component] :as c]
 ))
 
-(defmethod domino.ui.component/component :config-provider [opts]
+(defmethod component ::c/config-provider [[_ opts]]
   (fn []
     [syn-antd.config-provider/config-provider opts]))

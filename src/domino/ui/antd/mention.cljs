@@ -1,13 +1,13 @@
 (ns domino.ui.antd.mention
   (:require
     [syn-antd.mention]
-    [domino.ui.component]
+    [domino.ui.component :refer [component] :as c]
 ))
 
-(defmethod domino.ui.component/component :mention [opts]
+(defmethod component ::c/mention [[_ opts]]
   (fn []
     [syn-antd.mention/mention opts]))
 
-(defmethod domino.ui.component/component :mention-nav [opts]
+(defmethod component ::c/mention-nav [[_ opts]]
   (fn []
     [syn-antd.mention/mention-nav opts]))

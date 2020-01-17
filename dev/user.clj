@@ -235,7 +235,7 @@
 (def get-symbol-name (comp symbol module-name->kebab-case))
 
 (defn define-domino-component [component base-class]
-  (str "(defmethod domino.ui.component/component :" (get-symbol-name component) " [opts]"
+  (str "(defmethod component ::c/" (get-symbol-name component) " [[_ opts]]"
        "\n"
        "  (fn []\n"
        "    [syn-antd." (module-name->kebab-case base-class) "/" (get-symbol-name component) " opts]))"))
@@ -245,7 +245,7 @@
        "  (:require\n"
        (when reagent? (str "    [syn-antd."
                            (module-name->kebab-case class)
-                           "]\n    [domino.ui.component]\n"))
+                           "]\n    [domino.ui.component :refer [component] :as c]\n"))
        (when input? (str "    [syn-antd.reagent-utils]\n"))
        "))\n\n"
        rest-of-file))

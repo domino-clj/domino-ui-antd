@@ -1,17 +1,17 @@
 (ns domino.ui.antd.card
   (:require
     [syn-antd.card]
-    [domino.ui.component]
+    [domino.ui.component :refer [component] :as c]
 ))
 
-(defmethod domino.ui.component/component :card [opts]
+(defmethod component ::c/card [[_ opts]]
   (fn []
     [syn-antd.card/card opts]))
 
-(defmethod domino.ui.component/component :card-grid [opts]
+(defmethod component ::c/card-grid [[_ opts]]
   (fn []
     [syn-antd.card/card-grid opts]))
 
-(defmethod domino.ui.component/component :card-meta [opts]
+(defmethod component ::c/card-meta [[_ opts]]
   (fn []
     [syn-antd.card/card-meta opts]))

@@ -1,13 +1,13 @@
 (ns domino.ui.antd.form
   (:require
     [syn-antd.form]
-    [domino.ui.component]
+    [domino.ui.component :refer [component] :as c]
 ))
 
-(defmethod domino.ui.component/component :form [opts]
+(defmethod component ::c/form [[_ opts]]
   (fn []
     [syn-antd.form/form opts]))
 
-(defmethod domino.ui.component/component :form-item [opts]
+(defmethod component ::c/form-item [[_ opts]]
   (fn []
     [syn-antd.form/form-item opts]))

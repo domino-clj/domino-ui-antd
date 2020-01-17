@@ -1,9 +1,9 @@
 (ns domino.ui.antd.transfer
   (:require
     [syn-antd.transfer]
-    [domino.ui.component]
+    [domino.ui.component :refer [component] :as c]
 ))
 
-(defmethod domino.ui.component/component :transfer [opts]
+(defmethod component ::c/transfer [[_ opts]]
   (fn []
     [syn-antd.transfer/transfer opts]))
